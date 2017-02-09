@@ -1,0 +1,33 @@
+{
+  "name": "svg-pan-zoom-rotate",
+  "version": "0.0.1",
+  "description": "JS Library to allow pan, zoom and rotate on an SVG",
+  "main": "dist/svg-pan-zoom-rotate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "demo": "http-server ./ -d -c-1 -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastienmoulia/svg-pan-zoom-rotate.git"
+  },
+  "keywords": [
+    "svg",
+    "pan",
+    "zoom",
+    "rotate"
+  ],
+  "author": "Bastien Moulia <bastienmoulia@gmail.com> (https://github.com/bastienmoulia/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bastienmoulia/svg-pan-zoom-rotate/issues"
+  },
+  "homepage": "https://github.com/bastienmoulia/svg-pan-zoom-rotate#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.6",
+    "webpack": "^2.2.1"
+  }
+}
