@@ -4,7 +4,8 @@ module.exports = {
    filename: '/svg-pan-zoom-rotate.js',
    path: 'dist',
    library: 'svgPanZoomRotate',
-   libraryTarget: 'umd'
+   libraryTarget: 'umd',
+   umdNamedDefine: true
  },
  module: {
    rules: [
