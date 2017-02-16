@@ -146,19 +146,20 @@ export const SvgUtils = {
    * @param {Object} rotate
    */
 , setCTM: function(element, matrix, defs, rotate) {
-    var that = this
-      , s = 'matrix(' + matrix.a + ',' + matrix.b + ',' + matrix.c + ',' + matrix.d + ',' + matrix.e + ',' + matrix.f + ')';
-
+    var that = this;
+    var transform = 'matrix(' + matrix.a + ',' + matrix.b + ',' + matrix.c + ',' + matrix.d + ',' + matrix.e + ',' + matrix.f + ')';
+    var transformCss = transform;
     if (rotate.angle !== 0) {
-      s += ' rotate(' + rotate.angle + ',' + rotate.x + ',' + rotate.y + ')';
+      transform += ' rotate(' + rotate.angle + ',' + rotate.x + ',' + rotate.y + ')';
+      transformCss += ' rotate(' + rotate.angle + ')';
     }
-    element.setAttributeNS(null, 'transform', s);
+    element.setAttribute('transform', transform);
     if ('transform' in element.style) {
-      element.style.transform = s;
+      element.style.transform = transformCss;
     } else if ('-ms-transform' in element.style) {
-      element.style['-ms-transform'] = s;
+      element.style['-ms-transform'] = transformCss;
     } else if ('-webkit-transform' in element.style) {
-      element.style['-webkit-transform'] = s;
+      element.style['-webkit-transform'] = transformCss;
     }
 
     // IE has a bug that makes markers disappear on zoom (when the matrix "a" and/or "d" elements change)
