@@ -176,20 +176,12 @@ exports.SvgUtils = {
         }
     }, this.internetExplorerRedisplayInterval),
     setCTM: function (element, matrix, defs, rotate) {
-        var that = this, s = 'matrix(' + matrix.a + ',' + matrix.b + ',' + matrix.c + ',' + matrix.d + ',' + matrix.e + ',' + matrix.f + ')';
+        var that = this;
+        var transform = 'matrix(' + matrix.a + ',' + matrix.b + ',' + matrix.c + ',' + matrix.d + ',' + matrix.e + ',' + matrix.f + ')';
         if (rotate.angle !== 0) {
-            s += ' rotate(' + rotate.angle + ',' + rotate.x + ',' + rotate.y + ')';
+            transform += ' rotate(' + rotate.angle + ',' + rotate.x + ',' + rotate.y + ')';
         }
-        element.setAttributeNS(null, 'transform', s);
-        if ('transform' in element.style) {
-            element.style.transform = s;
-        }
-        else if ('-ms-transform' in element.style) {
-            element.style['-ms-transform'] = s;
-        }
-        else if ('-webkit-transform' in element.style) {
-            element.style['-webkit-transform'] = s;
-        }
+        element.setAttribute('transform', transform);
         // IE has a bug that makes markers disappear on zoom (when the matrix "a" and/or "d" elements change)
         // see http://stackoverflow.com/questions/17654578/svg-marker-does-not-work-in-ie9-10
         // and http://srndolha.wordpress.com/2013/11/25/svg-line-markers-may-disappear-in-internet-explorer-11/
@@ -729,12 +721,12 @@ ShadowViewport.prototype.rotate = function (angle) {
 ShadowViewport.prototype.getCTM = function () {
     var safeCTM = this.options.svg.createSVGMatrix();
     // Copy values manually as in FF they are not itterable
-    safeCTM.a = this.activeState.zoom;
+    safeCTM.a = this.activeState.zoom.toFixed(6);
     safeCTM.b = 0;
     safeCTM.c = 0;
-    safeCTM.d = this.activeState.zoom;
-    safeCTM.e = this.activeState.x;
-    safeCTM.f = this.activeState.y;
+    safeCTM.d = this.activeState.zoom.toFixed(6);
+    safeCTM.e = this.activeState.x.toFixed(6);
+    safeCTM.f = this.activeState.y.toFixed(6);
     return safeCTM;
 };
 /**

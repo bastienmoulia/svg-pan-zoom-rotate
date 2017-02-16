@@ -12,6 +12,7 @@
       <button id="zoom-in">Zoom in</button>
       <button id="zoom-out">Zoom out</button>
       <button id="reset">Reset</button>
+      <button id="rotate">Rotate</button>
     </div>
 
     <script>
@@ -38,6 +39,12 @@
           ev.preventDefault()
 
           panZoom.resetZoom()
+        });
+
+        document.getElementById('rotate').addEventListener('click', function(ev){
+          ev.preventDefault()
+
+          panZoom.rotateRelative(90)
         });
       };
     </script>
