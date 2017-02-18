@@ -444,14 +444,14 @@ exports.ControlIcons = {
         // Zoom Group
         var zoomGroup = document.createElementNS(svg_utilities_1.SvgUtils.svgNS, 'g');
         zoomGroup.setAttribute('id', 'svg-pan-zoom-controls');
-        zoomGroup.setAttribute('transform', 'translate(' + (instance.width - 90) + ' ' + (instance.height - 76) + ') scale(0.75)');
+        zoomGroup.setAttribute('transform', 'translate(' + (instance.width - 70) + ' ' + (instance.height - 76) + ') scale(0.75)');
         zoomGroup.setAttribute('class', 'svg-pan-zoom-control');
         // Control elements
         zoomGroup.appendChild(this._createZoomIn(instance));
         zoomGroup.appendChild(this._createZoomReset(instance));
         zoomGroup.appendChild(this._createZoomOut(instance));
-        zoomGroup.appendChild(this._createRotateLeft(instance));
-        zoomGroup.appendChild(this._createRotateRight(instance));
+        //zoomGroup.appendChild(this._createRotateLeft(instance))
+        //zoomGroup.appendChild(this._createRotateRight(instance))
         // Finally append created element
         instance.svg.appendChild(zoomGroup);
         // Cache control instance
