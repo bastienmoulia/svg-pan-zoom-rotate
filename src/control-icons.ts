@@ -29,6 +29,8 @@ export const ControlIcons = {
     zoomGroup.appendChild(this._createZoomIn(instance))
     zoomGroup.appendChild(this._createZoomReset(instance))
     zoomGroup.appendChild(this._createZoomOut(instance))
+    //zoomGroup.appendChild(this._createRotateLeft(instance))
+    //zoomGroup.appendChild(this._createRotateRight(instance))
 
     // Finally append created element
     instance.svg.appendChild(zoomGroup)
@@ -114,6 +116,56 @@ export const ControlIcons = {
     zoomOut.appendChild(zoomOutShape);
 
     return zoomOut
+  }
+
+, _createRotateLeft: function(instance){
+    // zoom out
+    var rotateLeft = document.createElementNS(SvgUtils.svgNS, 'g');
+    rotateLeft.setAttribute('id', 'svg-pan-zoom-rotate-left');
+    rotateLeft.setAttribute('transform', 'translate(-25 37) scale(0.015)');
+    rotateLeft.setAttribute('class', 'svg-pan-zoom-control');
+    rotateLeft.addEventListener('click', function() {instance.getPublicInstance().rotateRelative(-90)}, false);
+    rotateLeft.addEventListener('touchstart', function() {instance.getPublicInstance().rotateRelative(-90)}, false);
+
+    var rotateLeftBackground = document.createElementNS(SvgUtils.svgNS, 'rect'); // TODO change these background space fillers to rounded rectangles so they look prettier
+    rotateLeftBackground.setAttribute('x', '0');
+    rotateLeftBackground.setAttribute('y', '0');
+    rotateLeftBackground.setAttribute('width', '1500'); // larger than expected because the whole group is transformed to scale down
+    rotateLeftBackground.setAttribute('height', '1400');
+    rotateLeftBackground.setAttribute('class', 'svg-pan-zoom-control-background');
+    rotateLeft.appendChild(rotateLeftBackground);
+
+    var rotateLeftShape = document.createElementNS(SvgUtils.svgNS, 'path');
+    rotateLeftShape.setAttribute('d', 'M1280 576v128q0 26 -19 45t-45 19h-896q-26 0 -45 -19t-19 -45v-128q0 -26 19 -45t45 -19h896q26 0 45 19t19 45zM1536 1120v-960q0 -119 -84.5 -203.5t-203.5 -84.5h-960q-119 0 -203.5 84.5t-84.5 203.5v960q0 119 84.5 203.5t203.5 84.5h960q119 0 203.5 -84.5 t84.5 -203.5z');
+    rotateLeftShape.setAttribute('class', 'svg-pan-zoom-control-element');
+    rotateLeft.appendChild(rotateLeftShape);
+
+    return rotateLeft
+  }
+
+, _createRotateRight: function(instance){
+    // zoom out
+    var rotateRight = document.createElementNS(SvgUtils.svgNS, 'g');
+    rotateRight.setAttribute('id', 'svg-pan-zoom-rotate-left');
+    rotateRight.setAttribute('transform', 'translate(86 37) scale(0.015)');
+    rotateRight.setAttribute('class', 'svg-pan-zoom-control');
+    rotateRight.addEventListener('click', function() {instance.getPublicInstance().rotateRelative(90)}, false);
+    rotateRight.addEventListener('touchstart', function() {instance.getPublicInstance().rotateRelative(90)}, false);
+
+    var rotateRightBackground = document.createElementNS(SvgUtils.svgNS, 'rect'); // TODO change these background space fillers to rounded rectangles so they look prettier
+    rotateRightBackground.setAttribute('x', '0');
+    rotateRightBackground.setAttribute('y', '0');
+    rotateRightBackground.setAttribute('width', '1500'); // larger than expected because the whole group is transformed to scale down
+    rotateRightBackground.setAttribute('height', '1400');
+    rotateRightBackground.setAttribute('class', 'svg-pan-zoom-control-background');
+    rotateRight.appendChild(rotateRightBackground);
+
+    var rotateRightShape = document.createElementNS(SvgUtils.svgNS, 'path');
+    rotateRightShape.setAttribute('d', 'M1280 576v128q0 26 -19 45t-45 19h-896q-26 0 -45 -19t-19 -45v-128q0 -26 19 -45t45 -19h896q26 0 45 19t19 45zM1536 1120v-960q0 -119 -84.5 -203.5t-203.5 -84.5h-960q-119 0 -203.5 84.5t-84.5 203.5v960q0 119 84.5 203.5t203.5 84.5h960q119 0 203.5 -84.5 t84.5 -203.5z');
+    rotateRightShape.setAttribute('class', 'svg-pan-zoom-control-element');
+    rotateRight.appendChild(rotateRightShape);
+
+    return rotateRight
   }
 
 , disable: function(instance) {

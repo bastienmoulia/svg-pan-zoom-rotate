@@ -1,4 +1,6 @@
 # svg-pan-zoom-rotate
+[![npm version](https://badge.fury.io/js/svg-pan-zoom-rotate.svg)](https://badge.fury.io/js/svg-pan-zoom-rotate)
+
 JS Library to allow pan, zoom and rotate on an SVG
 
 Based on [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom/).

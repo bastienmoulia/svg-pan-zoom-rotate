@@ -1,6 +1,6 @@
 {
   "name": "svg-pan-zoom-rotate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JS Library to allow pan, zoom and rotate on an SVG",
   "main": "dist/svg-pan-zoom-rotate.js",
   "scripts": {
