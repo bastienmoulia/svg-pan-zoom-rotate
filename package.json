@@ -1,8 +1,9 @@
 {
   "name": "svg-pan-zoom-rotate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JS Library to allow pan, zoom and rotate on an SVG",
-  "main": "dist/svg-pan-zoom-rotate.js",
+  "main": "./dist/svg-pan-zoom-rotate.js",
+  "types": "./lib/svg-pan-zoom-rotate.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
